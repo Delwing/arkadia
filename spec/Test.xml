@@ -8,6 +8,7 @@
 			<script>
 				package.path = string.format("%s;%s", "%placeholder%"", package.path)
 				installPackage("%placeholder%/Arkadia.xml")
+				print(package.path)
 			</script>
 			<eventHandlerList>
 				<string>sysInstallPackage</string>

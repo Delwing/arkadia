@@ -9,11 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: sed -i 's/|%placeholder%|${{github.workspace}}|g' ${{github.workspace}}/spec/Test.xml
+      - run: sed -i 's|%placeholder%|${{github.workspace}}|g' ${{github.workspace}}/spec/Test.xml
+      - run: cat ${{github.workspace}}/spec/Test.xml
       - name: Run Busted tests
         uses: demonnic/test-in-mudlet@v1.2
-        env:
-          LUA_PATH: ${{env.LUA_PATH}};${{github.workspace}}
         with:
           testsDirectory: ${{ github.workspace }}/spec
           pretestPackage: ${{ github.workspace }}/spec/Test.xml
