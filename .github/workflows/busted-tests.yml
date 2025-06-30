@@ -1,0 +1,16 @@
+name: Busted Tests
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Busted tests
+        uses: demonnic/run-busted-tests-in-mudlet@v1
+        with:
+          testsDirectory: ${{ github.workspace }}/spec
+          pretestPackage: ${{ github.workspace }}/Arkadia.xml
