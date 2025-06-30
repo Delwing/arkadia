@@ -21,21 +21,19 @@ local enter_commands = {
 local definitions = {}
 
 local definitions_dir = getMudletHomeDir() .. "/arkadia/skrypty/transport/definitions"
-local result, defs = pcall(lfs.dir, definitions_dir)
-if result then
-    for dir in defs  do
-        if dir ~= "." and dir ~= ".." then
-            local sub_dir = definitions_dir .. "/" .. dir
-            for entry in lfs.dir(sub_dir) do
-                if entry ~= "." and entry ~= ".." then
-                    local definition_file = io.open(sub_dir .. "/" .. entry, "r")
-                    definitions[entry:sub(1, -6)] = yajl.to_value(definition_file:read("*a"))
-                    definition_file:close()
-                end
+for dir in lfs.dir(definitions_dir)  do
+    if dir ~= "." and dir ~= ".." then
+        local sub_dir = definitions_dir .. "/" .. dir
+        for entry in lfs.dir(sub_dir) do
+            if entry ~= "." and entry ~= ".." then
+                local definition_file = io.open(sub_dir .. "/" .. entry, "r")
+                definitions[entry:sub(1, -6)] = yajl.to_value(definition_file:read("*a"))
+                definition_file:close()
             end
         end
     end
 end
+
 
 local location_to_definition = {}
 
