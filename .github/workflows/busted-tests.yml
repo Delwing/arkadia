@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: sed -i 's|%placeholder%|${{github.workspace}}|g' ${{github.workspace}}/spec/Test.xml
-      - run: cat ${{github.workspace}}/spec/Test.xml
+      - run: mkdir -p $HOME/.config/mudlet/profiles/GithubTests/arkadia && cp -r ${{github.workspace}} $HOME/.config/mudlet/profiles/GithubTests
+      - run: ls $HOME/.config/mudlet/profiles/GithubTests/arkadia
       - name: Run Busted tests
         uses: demonnic/test-in-mudlet@v1.2
         with:
           testsDirectory: ${{ github.workspace }}/spec
-          pretestPackage: ${{ github.workspace }}/spec/Test.xml
+          pretestPackage: $HOME/.config/mudlet/profiles/GithubTests/arkadia/Arkadia.xml
