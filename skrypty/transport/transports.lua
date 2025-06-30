@@ -21,7 +21,7 @@ local enter_commands = {
 local definitions = {}
 
 local definitions_dir = getMudletHomeDir() .. "/arkadia/skrypty/transport/definitions"
-for dir in lfs.dir(definitions_dir) do
+for dir in pcall(lfs.dir, definitions_dir) do
     if dir ~= "." and dir ~= ".." then
         local sub_dir = definitions_dir .. "/" .. dir
         for entry in lfs.dir(sub_dir) do
