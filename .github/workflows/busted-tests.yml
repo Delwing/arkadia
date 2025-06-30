@@ -15,4 +15,4 @@ jobs:
         uses: demonnic/test-in-mudlet@v1.2
         with:
           testsDirectory: ${{ github.workspace }}/spec
-          pretestPackage: ${{ runner.home }}/.config/mudlet/profiles/GithubTests/arkadia/Arkadia.xml
+          pretestPackage: /home/runner/.config/mudlet/profiles/GithubTests/arkadia/Arkadia.xml
