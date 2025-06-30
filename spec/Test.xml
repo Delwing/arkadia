@@ -9,7 +9,8 @@
 				echo("==========================")
 				echo("   START ARKADIA TEST")
 				echo("==========================")
-				package.path = string.format("%s;%s", "%placeholder%":sub(0, -9), package.path)
+				local arkPath = "%placeholder%"
+				package.path = string.format("%s;%s", arkPath:sub(0, -9), package.path)
 				installPackage("%placeholder%/Arkadia.xml")
 				echo(package.path)
 			</script>
