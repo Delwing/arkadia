@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: mkdir -p /home/runner/.config/mudlet/profiles/GithubTests/
       - run: ln -s ${{ github.workspace }}/arkadia/ /home/runner/.config/mudlet/profiles/GithubTests/arkadia/
       - name: Run Busted tests
         uses: demonnic/test-in-mudlet@v1.2
