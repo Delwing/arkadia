@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Busted tests
-        uses: demonnic/run-busted-tests-in-mudlet@v1
+        uses: demonnic/test-in-mudlet@v1.2
         with:
           testsDirectory: ${{ github.workspace }}/spec
           pretestPackage: ${{ github.workspace }}/Arkadia.xml
