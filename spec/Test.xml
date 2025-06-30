@@ -9,7 +9,6 @@
 				echo("==========================")
 				echo("   START ARKADIA TEST")
 				echo("==========================")
-				package.path = string.format("%s/?.lua;%s", "%placeholder%", package.path)
 				package.path = string.format("%s/init.lua;%s", "%placeholder%", package.path)
 				installPackage("%placeholder%/Arkadia.xml")
 				echo(package.path)
