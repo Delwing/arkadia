@@ -6,9 +6,12 @@
 			<name>Arkadia Test Runner</name>
 			<packageName></packageName>
 			<script>
+				echo("==========================")
+				echo("START ARKADIA TEST")
+				echo("==========================")
 				package.path = string.format("%s;%s", "%placeholder%"", package.path)
 				installPackage("%placeholder%/Arkadia.xml")
-				print(package.path)
+				echo(package.path)
 			</script>
 			<eventHandlerList>
 				<string>sysInstallPackage</string>
