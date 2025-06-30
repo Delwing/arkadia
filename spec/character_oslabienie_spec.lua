@@ -2,7 +2,7 @@
 
 describe("skrypty.character.oslabienie", function()
   it("adds progress information to the output", function()
-    prtinln("Running test")
+    echo("Running test")
     alias_func_skrypty_fake_combat("Twoje cechy sa oslabione po ostatniej smierci. By je odbudowac potrzebujesz zdobyc jeszcze minimalne postepy.")
     moveCursor(0, getLastLineNumber())
     local line = copy2decho()
