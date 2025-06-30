@@ -10,7 +10,8 @@
 				echo("   START ARKADIA TEST")
 				echo("==========================")
 				local arkPath = "%placeholder%"
-				package.path = string.format("%s;%s", arkPath:sub(0, -9), package.path)
+				package.path = string.format("%s/?.lua;%s", arkPath:sub(0, -9), package.path)
+				package.path = string.format("%s/init.lua;%s", arkPath:sub(0, -9), package.path)
 				installPackage("%placeholder%/Arkadia.xml")
 				echo(package.path)
 			</script>
