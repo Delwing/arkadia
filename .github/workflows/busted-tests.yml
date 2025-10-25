@@ -1,0 +1,17 @@
+name: Busted Tests
+
+on:
+  [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p $HOME/.config/mudlet/profiles/GithubTests/arkadia && cp -r ${{github.workspace}} $HOME/.config/mudlet/profiles/GithubTests
+      - run: ls $HOME/.config/mudlet/profiles/GithubTests/arkadia
+      - name: Run Busted tests
+        uses: demonnic/test-in-mudlet@v1.2
+        with:
+          testsDirectory: ${{ github.workspace }}/spec
+          pretestPackage: /home/runner/.config/mudlet/profiles/GithubTests/arkadia/Arkadia.xml

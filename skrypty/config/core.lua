@@ -7,7 +7,7 @@ if file then
     scripts.config_schema = yajl.to_value(file:read("*a"))
     file:close()
 else
-    error("config schema file doesn't exist")
+    --error("config schema file doesn't exist")
 end
 
 function scripts_load_v2_config(name)
